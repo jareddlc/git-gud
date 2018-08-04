@@ -27,16 +27,16 @@ Commands that need additional formatting without the formatting (base speed)
 
 Commands that need additional formatting
 
-| Command                                                      | Real Time |
-| ------------------------------------------------------------ |:---------:|
-| git branch | grep \* | awk '{ $1=$1; print }' | tr -d \"* \" | 0m0.016s  |
-| git branch | grep \* | cut -d ' ' -f2-                       | 0m0.016s  |
-| git branch | sed -n '/\* /s///p'                             | 0m0.014s  |
-| git status | head -1 | awk '{ print $3; }'                   | 0m0.026s  |
-| cat .git/HEAD | awk -F / '{ print $3; }'                     | 0m0.004s  |
-| git symbolic-ref HEAD | awk -F / '{ print $3; }'             | 0m0.008s  |
-| git name-rev HEAD | awk '{ print $2; }'                      | 0m0.039s  |
-| git describe --all | awk -F / '{ print $2; }'                | 0m0.016s  |
+| Command                                                         | Real Time |
+| --------------------------------------------------------------- |:---------:|
+| git branch \| grep \* \| awk '{ $1=$1; print }' \| tr -d \"* \" | 0m0.016s  |
+| git branch \| grep \* \| cut -d ' ' -f2-                        | 0m0.016s  |
+| git branch \| sed -n '/\* /s///p'                               | 0m0.014s  |
+| git status \| head -1 \| awk '{ print $3; }'                    | 0m0.026s  |
+| cat .git/HEAD \| awk -F / '{ print $3; }'                       | 0m0.004s  |
+| git symbolic-ref HEAD \| awk -F / '{ print $3; }'               | 0m0.008s  |
+| git name-rev HEAD \| awk '{ print $2; }'                        | 0m0.039s  |
+| git describe --all \| awk -F / '{ print $2; }'                  | 0m0.016s  |
 
 Commands that dont need additional formatting
 
