@@ -1,13 +1,8 @@
 # git-gud
-These benchmarks aim to show the fastest way to get information from git.
-
-Getting fast git info is particularly important if you are trying to add information to the PS1 property of a terminal.
-
-
-All the tests are conducted in the [git repo](https://github.com/git/git) and are the fastest of 5 executions.
+These benchmarks aim to show the fastest way to get information from git. Getting fast git info is particularly important if you are trying to add information to the PS1 property of a terminal. All the tests are conducted in the [git repo](https://github.com/git/git) and are the fastest of 5 executions.
 
 ### Git Current Branch
-The fastest way to get a git repo's current branch is: `cat .git/HEAD | awk -F / '{ print $3; }'`
+The fastest way to get a git repo's current branch is: `cat .git/HEAD | awk -F refs/heads/ '{ print $2; }'`
 
 
 Try it yourself!
@@ -33,10 +28,10 @@ Commands that need additional formatting
 | git branch \| grep \* \| cut -d ' ' -f2-                        | 0m0.016s  |
 | git branch \| sed -n '/\* /s///p'                               | 0m0.014s  |
 | git status \| head -1 \| awk '{ print $3; }'                    | 0m0.026s  |
-| cat .git/HEAD \| awk -F / '{ print $3; }'                       | 0m0.004s  |
-| git symbolic-ref HEAD \| awk -F / '{ print $3; }'               | 0m0.008s  |
+| cat .git/HEAD \| awk -F refs/heads/ '{ print $2; }'             | 0m0.004s  |
+| git symbolic-ref HEAD \| awk -F refs/heads/ '{ print $2; }'     | 0m0.008s  |
 | git name-rev HEAD \| awk '{ print $2; }'                        | 0m0.039s  |
-| git describe --all \| awk -F / '{ print $2; }'                  | 0m0.016s  |
+| git describe --all \| awk -F heads/ '{ print $2; }'             | 0m0.016s  |
 
 Commands that dont need additional formatting
 
