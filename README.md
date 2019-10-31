@@ -44,3 +44,5 @@ Commands that dont need additional formatting
 #### Contributing
 
 Have a faster method? Submit a pull request and add it to the benchmarks.
+
+A
